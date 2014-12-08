@@ -1,7 +1,7 @@
 Analyze_NBA
 ===========
 
-This program has been tested with Python 3.4 on Windows 8 and Ubuntu 14
+This program has been tested with Python 3.4 on Windows 8
 
 From the command line the program can be run by issuing the command:
 python NBAMakeTrees.py
