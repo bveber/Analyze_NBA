@@ -1,3 +1,28 @@
+"""
+******
+NBAMakeTrees
+******
+Tested in Python3.4 on Windows8 and Ubuntu 14
+
+Collects data from stats.nba.com and basketball-reference.com
+
+This module finds the top scoring player on each team and uses uses
+5 parameters from their shotlog data
+ -Shot Clock
+ -Dribbles
+ -Touch Time
+ -Shot Distance
+ -Closest Defender Distance
+
+From these parameters, a decision tree is used to determine the players
+most frequent shooting situations and their success in each one.
+"""
+
+__author__ = """Brandon Veber (veber.brandon@gmail.com)"""
+__all__ = ['main', 'mainTest', 'makeTrees', 'getShotlogs',
+           'extractShotlogs', 'getCurrentPlayers','getAllPlayers',
+           'getTopScorers','getTeamURLs','getAllTeams','readHTML']
+
 import requests, pydot, os
 import pandas as pd
 from lxml import etree
@@ -7,6 +32,8 @@ from sklearn import *
 import subprocess
 
 def main():
+    """Retrieves all relevant data and saves each teams top scorer's
+    tree to a png file"""
     allPlayers = getAllPlayers()
     currentPlayers = getCurrentPlayers(allPlayers)
     topScorers = getTopScorers()
@@ -20,6 +47,7 @@ def main():
     except: return(data)
     return([])
 def mainTest(currentPlayers,topScorers):
+    """Testing version of main module that requires pre-retrieval of data"""
 ##    allPlayers = getAllPlayers()
 ##    currentPlayers = getCurrentPlayers(allPlayers)
 ##    topScorers = getTopScorers()
@@ -28,6 +56,7 @@ def mainTest(currentPlayers,topScorers):
     return(topScorers)
 
 def makeTrees(data):
+    """Takes preprocessed shotlog data to create and save tree graphic"""
     for team in sorted(list(data.keys())):
         print(data[team]['Player'])
         nShots = len(data[team]['y'])
@@ -45,6 +74,7 @@ def makeTrees(data):
         
 
 def getShotlogs(topScorers):
+    """Makes pandas dataframe from players shotlogs"""
     url0 = 'http://stats.nba.com/stats/playerdashptshotlog?'
     params = {'DateFrom':'',
                 'DateTo':'',
@@ -73,6 +103,7 @@ def getShotlogs(topScorers):
     return(shotlogs)
 
 def extractShotlogs(shotlogs):
+    """Preprocesses raw dataframe to give usable data for classification"""
     data = {}
     for team in shotlogs.keys():
         tempLog = shotlogs[team]['log']
@@ -84,9 +115,11 @@ def extractShotlogs(shotlogs):
     return(data)
 
 def getCurrentPlayers(allPlayers):
+    """Returns all active players from NBA players list"""
     return(allPlayers.loc[allPlayers['TO_YEAR'] == '2014'].sort_index(by=['DISPLAY_LAST_COMMA_FIRST'],ascending=[True]))
     
 def getAllPlayers():
+    """Returns all players from NBA history"""
     url = 'http://stats.nba.com/stats/commonallplayers?IsOnlyCurrentSeason=0&LeagueID=00&Season=2014-15'
     page = requests.get(url)
     page=page.json()
@@ -95,6 +128,7 @@ def getAllPlayers():
     return(allPlayers)
 
 def getTopScorers():
+    """Finds the top scorers in terms of Points Per Game for each team"""
     topScorer={}
     teamURLs = getTeamURLs()
     for teamURL in teamURLs:
@@ -113,12 +147,14 @@ def getTopScorers():
     return(topScorer)
 
 def getTeamURLs():
+    """Finds the urls for each team on basketball-reference.com"""
     url = 'http://www.basketball-reference.com/teams/'
     html = readHTML(url)
     hrefs = html.xpath('//tbody//tr[@class="full_table"]//td//a//@href')
     return(hrefs)
 
 def getAllTeams():
+    """Returns list of all team names"""
     return(['celtics','nets','knicks','sixers','raptors',
              'bulls','cavaliers','pistons','pacers','bucks',
              'hawks','hornets','heat','magic','wizards',
@@ -126,6 +162,7 @@ def getAllTeams():
              'nuggets','timberwolves','thunder','blazers','jazz',
              'warriors','clippers','lakers','suns','kings'])
 def readHTML(url):
+    """opens urls and parses it as HTML"""
     return(etree.HTML(urllib.urlopen(url).read()))
 
 if __name__ == '__main__':
