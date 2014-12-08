@@ -1,0 +1,27 @@
+digraph Tree {
+0 [label="Shot Dist <= 8.7500\ngini = 0.494967585174\nsamples = 309", shape="box"] ;
+1 [label="gini = 0.4927\nsamples = 116\nvalue = [ 65.  51.]", shape="box"] ;
+0 -> 1 ;
+2 [label="Shot Clock <= 20.9000\ngini = 0.47281806223\nsamples = 193", shape="box"] ;
+0 -> 2 ;
+3 [label="Closest Defender Distance <= 1.8500\ngini = 0.463868655336\nsamples = 186", shape="box"] ;
+2 -> 3 ;
+4 [label="gini = 0.2778\nsamples = 6\nvalue = [ 5.  1.]", shape="box"] ;
+3 -> 4 ;
+5 [label="Shot Dist <= 11.6500\ngini = 0.455\nsamples = 180", shape="box"] ;
+3 -> 5 ;
+6 [label="gini = 0.0000\nsamples = 9\nvalue = [ 0.  9.]", shape="box"] ;
+5 -> 6 ;
+7 [label="Shot Dist <= 13.9000\ngini = 0.465373961219\nsamples = 171", shape="box"] ;
+5 -> 7 ;
+8 [label="gini = 0.4567\nsamples = 17\nvalue = [ 11.   6.]", shape="box"] ;
+7 -> 8 ;
+9 [label="Shot Dist <= 15.4500\ngini = 0.447292966773\nsamples = 154", shape="box"] ;
+7 -> 9 ;
+10 [label="gini = 0.0000\nsamples = 6\nvalue = [ 0.  6.]", shape="box"] ;
+9 -> 10 ;
+11 [label="gini = 0.4558\nsamples = 148\nvalue = [ 52.  96.]", shape="box"] ;
+9 -> 11 ;
+12 [label="gini = 0.2449\nsamples = 7\nvalue = [ 6.  1.]", shape="box"] ;
+2 -> 12 ;
+}

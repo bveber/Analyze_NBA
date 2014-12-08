@@ -1,0 +1,19 @@
+digraph Tree {
+0 [label="Shot Dist <= 5.1500\ngini = 0.496729022491\nsamples = 272", shape="box"] ;
+1 [label="gini = 0.4537\nsamples = 69\nvalue = [ 45.  24.]", shape="box"] ;
+0 -> 1 ;
+2 [label="Shot Dist <= 26.2000\ngini = 0.477565580334\nsamples = 203", shape="box"] ;
+0 -> 2 ;
+3 [label="Shot Clock <= 5.5500\ngini = 0.482362338633\nsamples = 197", shape="box"] ;
+2 -> 3 ;
+4 [label="gini = 0.4114\nsamples = 38\nvalue = [ 11.  27.]", shape="box"] ;
+3 -> 4 ;
+5 [label="Shot Clock <= 10.7000\ngini = 0.491278034888\nsamples = 159", shape="box"] ;
+3 -> 5 ;
+6 [label="gini = 0.4970\nsamples = 65\nvalue = [ 35.  30.]", shape="box"] ;
+5 -> 6 ;
+7 [label="gini = 0.4617\nsamples = 94\nvalue = [ 34.  60.]", shape="box"] ;
+5 -> 7 ;
+8 [label="gini = 0.0000\nsamples = 6\nvalue = [ 0.  6.]", shape="box"] ;
+2 -> 8 ;
+}
