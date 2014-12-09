@@ -1,19 +1,19 @@
 digraph Tree {
-0 [label="Shot Dist <= 20.9500\ngini = 0.498269896194\nsamples = 374", shape="box"] ;
-1 [label="Shot Clock <= 18.1500\ngini = 0.498818479938\nsamples = 288", shape="box"] ;
+0 [label="Shot Dist <= 20.9500\ngini = 0.498527732708\nsamples = 387", shape="box"] ;
+1 [label="Shot Clock <= 17.0500\ngini = 0.498339557598\nsamples = 295", shape="box"] ;
 0 -> 1 ;
-2 [label="Touch Time <= 6.1500\ngini = 0.499325281133\nsamples = 245", shape="box"] ;
+2 [label="Touch Time <= 4.3500\ngini = 0.499453589236\nsamples = 242", shape="box"] ;
 1 -> 2 ;
-3 [label="Closest Defender Distance <= 5.9500\ngini = 0.498306318412\nsamples = 189", shape="box"] ;
+3 [label="Shot Clock <= 11.5500\ngini = 0.494156318481\nsamples = 148", shape="box"] ;
 2 -> 3 ;
-4 [label="gini = 0.5000\nsamples = 175\nvalue = [ 88.  87.]", shape="box"] ;
+4 [label="gini = 0.4696\nsamples = 69\nvalue = [ 43.  26.]", shape="box"] ;
 3 -> 4 ;
-5 [label="gini = 0.2449\nsamples = 14\nvalue = [ 12.   2.]", shape="box"] ;
+5 [label="gini = 0.4999\nsamples = 79\nvalue = [ 39.  40.]", shape="box"] ;
 3 -> 5 ;
-6 [label="gini = 0.4362\nsamples = 56\nvalue = [ 18.  38.]", shape="box"] ;
+6 [label="gini = 0.4674\nsamples = 94\nvalue = [ 35.  59.]", shape="box"] ;
 2 -> 6 ;
-7 [label="gini = 0.3569\nsamples = 43\nvalue = [ 33.  10.]", shape="box"] ;
+7 [label="gini = 0.3888\nsamples = 53\nvalue = [ 39.  14.]", shape="box"] ;
 1 -> 7 ;
-8 [label="gini = 0.4124\nsamples = 86\nvalue = [ 25.  61.]", shape="box"] ;
+8 [label="gini = 0.4147\nsamples = 92\nvalue = [ 27.  65.]", shape="box"] ;
 0 -> 8 ;
 }

@@ -1,15 +1,15 @@
 digraph Tree {
-0 [label="Shot Dist <= 3.4500\ngini = 0.494341330919\nsamples = 282", shape="box"] ;
-1 [label="gini = 0.4152\nsamples = 34\nvalue = [ 24.  10.]", shape="box"] ;
+0 [label="Shot Dist <= 5.1500\ngini = 0.494325763749\nsamples = 291", shape="box"] ;
+1 [label="gini = 0.4688\nsamples = 64\nvalue = [ 40.  24.]", shape="box"] ;
 0 -> 1 ;
-2 [label="Touch Time <= 2.1500\ngini = 0.484261186264\nsamples = 248", shape="box"] ;
+2 [label="Touch Time <= 2.1500\ngini = 0.478565467989\nsamples = 227", shape="box"] ;
 0 -> 2 ;
-3 [label="gini = 0.4995\nsamples = 93\nvalue = [ 48.  45.]", shape="box"] ;
+3 [label="gini = 0.4999\nsamples = 87\nvalue = [ 43.  44.]", shape="box"] ;
 2 -> 3 ;
-4 [label="Touch Time <= 4.5500\ngini = 0.454027055151\nsamples = 155", shape="box"] ;
+4 [label="Touch Time <= 5.7500\ngini = 0.446020408163\nsamples = 140", shape="box"] ;
 2 -> 4 ;
-5 [label="gini = 0.3157\nsamples = 56\nvalue = [ 11.  45.]", shape="box"] ;
+5 [label="gini = 0.3829\nsamples = 62\nvalue = [ 16.  46.]", shape="box"] ;
 4 -> 5 ;
-6 [label="gini = 0.4914\nsamples = 99\nvalue = [ 43.  56.]", shape="box"] ;
+6 [label="gini = 0.4790\nsamples = 78\nvalue = [ 31.  47.]", shape="box"] ;
 4 -> 6 ;
 }

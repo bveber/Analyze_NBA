@@ -60,13 +60,14 @@ def makeTrees(data):
     for team in sorted(list(data.keys())):
         print(data[team]['Player'])
         nShots = len(data[team]['y'])
-        grid = grid_search.GridSearchCV(tree.DecisionTreeClassifier(),{'min_samples_split':[nShots/4,nShots/3,nShots/2]})
+        print('NSplits',[nShots/10,nShots/7.5,nShots/5])
+        grid = grid_search.GridSearchCV(tree.DecisionTreeClassifier(),{'min_samples_leaf':[nShots/10,nShots/7.5,nShots/5]})
         grid.fit(data[team]['X'],data[team]['y'])
         print(grid.best_params_)
         clf = grid.best_estimator_
         clf.fit(data[team]['X'],data[team]['y'])
         fname = list(data[team]['Player'])[0]
-        with open('C://Users/Brandon/Desktop/NBAAnalysis_0/'+fname+'.dot','w') as f:
+        with open('C://Users/Brandon/Documents/GitHub/Analyze_NBA/'+fname+'.dot','w') as f:
             f=tree.export_graphviz(clf,out_file=f,feature_names = ['Shot Clock','Dribbles','Touch Time',
                                                                      'Shot Dist','Closest Defender Distance'])
         program = 'C://Program Files (x86)/Graphviz2.38/bin/dot.exe'

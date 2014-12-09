@@ -6,6 +6,10 @@ digraph Tree {
 0 -> 2 ;
 3 [label="gini = 0.4970\nsamples = 52\nvalue = [ 24.  28.]", shape="box"] ;
 2 -> 3 ;
-4 [label="gini = 0.4206\nsamples = 123\nvalue = [ 37.  86.]", shape="box"] ;
+4 [label="Shot Clock <= 13.9000\ngini = 0.42064908454\nsamples = 123", shape="box"] ;
 2 -> 4 ;
+5 [label="gini = 0.3160\nsamples = 61\nvalue = [ 12.  49.]", shape="box"] ;
+4 -> 5 ;
+6 [label="gini = 0.4813\nsamples = 62\nvalue = [ 25.  37.]", shape="box"] ;
+4 -> 6 ;
 }
