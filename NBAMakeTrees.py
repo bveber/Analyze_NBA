@@ -2,7 +2,7 @@
 ******
 NBAMakeTrees
 ******
-Tested in Python3.4 on Windows8 and Ubuntu 14
+Tested in Python3.4 on Windows8
 
 Collects data from stats.nba.com and basketball-reference.com
 
